@@ -1,10 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>FlightsList</title>
 </head>
 <body>
+<h1>All Flights: </h1>
+    <table border="1">
+        <tr>
+            <th>Departure date</th>
+            <th>Returning date </th>
+            <th>Number of seats</th>
+            <th>List of tourists</th>
+            <th>Price</th>
+        </tr>
+        <tr th:each="flight: ${flights}">
+            <td th:text="${flight.start}"></td>
+            <td th:text="${flight.landing}"></td>
+            <td th:text="${flight.numberOfSeats}"></td>
+            <td th:text="${flight.passengers}"></td>
+            <td th:text="${flight.ticketPrice}"></td>
+
+        </tr>
+    </table>
+<br>
+    <a th:href="@{/}">Homepage</a>
 
 </body>
 </html>

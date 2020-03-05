@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cosmos manager</title>
+</head>
+<body>
+<h3><p th:text="${message}">a </p></h3>
+<h1>Add Tourist:</h1>
+<form th:action="@{/tourists}" th:object="${modelTourist}" method="post">
+    <p><label>
+        <input type="text" th:field="*{firstName}" placeholder="First name" />
+    </label></p>
+    <p><label>
+        <input type="text" th:field="*{lastName}" placeholder="Last name" />
+    </label></p>
+
+    <p>Please select your gender:</p>
+    <input type="radio" id="male" th:field="*{gender}" value="male">
+    <label for="male">Male</label><br>
+    <input type="radio" id="female" th:field="*{gender}" value="female">
+    <label for="female">Female</label><br>
+    <input type="radio" id="other" th:field="*{gender}" value="other">
+    <label for="other">Other</label>
+
+    <p><input type="text" th:field="*{country}" placeholder="Country"> </p>
+
+    <p><input type="text" th:field="*{notes}" placeholder="Notes..."> </p>
+
+    <p><input type="date" th:field="*{dateOfBirth}"></p>
+
+    <p><input type="submit" value="Add Tourist" /></p>
+</form>
+<h2>Add Flight: </h2>
+    <form th:action="@{/flights}" th:object="${modelFlight}" method="post">
+        <p><label>
+            <input type="datetime-local" th:field="*{start}">
+        </label></p>
+        <p><label>
+            <input type="datetime-local" th:field="*{landing}">
+        </label></p>
+        <p><label>
+            <input type="number" th:field="*{numberOfSeats}">
+        </label></p>
+        <p><label>
+            <input type="number" th:field="*{ticketPrice}">
+        </label></p>
+        <p><input type="submit" value="Add Flight" /></p>
+    </form>
+
+<a href="reservation.html"> Złóż rezerwacje </a>
+
+</body>
+</html>

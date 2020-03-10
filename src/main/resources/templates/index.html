@@ -57,10 +57,16 @@
 <h1>Add Flight: </h1>
     <form th:action="@{/flights}" th:object="${modelFlight}" method="post">
         <p><label>
-            <input type="datetime-local" th:field="*{start}">
+            <input type="date" th:field="*{startDate}">
         </label></p>
         <p><label>
-            <input type="datetime-local" th:field="*{landing}">
+            <input type="time" th:field="*{startTime}">
+        </label></p>
+        <p><label>
+            <input type="date" th:field="*{endDate}">
+        </label></p>
+        <p><label>
+            <input type="time" th:field="*{endTime}">
         </label></p>
         <p><label>
             <input type="number" th:field="*{numberOfSeats}">

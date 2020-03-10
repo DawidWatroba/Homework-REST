@@ -9,14 +9,18 @@
     <table border="1">
         <tr>
             <th>Departure date</th>
+            <th>Departure time</th>
             <th>Returning date </th>
+            <th>Returning time</th>
             <th>Number of seats</th>
             <th>List of tourists</th>
             <th>Price</th>
         </tr>
         <tr th:each="flight: ${flights}">
-            <td th:text="${flight.start}"></td>
-            <td th:text="${flight.landing}"></td>
+            <td th:text="${flight.startDate}"></td>
+            <td th:text="${flight.startTime}"></td>
+            <td th:text="${flight.endDate}"></td>
+            <td th:text="${flight.endTime}"></td>
             <td th:text="${flight.numberOfSeats}"></td>
             <td th:text="${flight.passengers}"></td>
             <td th:text="${flight.ticketPrice}"></td>

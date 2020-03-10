@@ -1,6 +1,7 @@
 package pl.dawid.model;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -15,7 +16,8 @@ public class Tourist {
     private String gender;
     private String country;
     private String notes;
-    private String dateOfBirth;
+    @Column(columnDefinition = "DATE")
+    private LocalDate dateOfBirth;
     @ManyToMany
     private List<Flight> flights;
 
@@ -28,7 +30,7 @@ public class Tourist {
         this.gender = gender;
         this.country = country;
         this.notes = notes;
-        this.dateOfBirth = dateOfBirth;
+        this.dateOfBirth = LocalDate.parse(dateOfBirth);
         this.flights = flights;
     }
 
@@ -80,12 +82,12 @@ public class Tourist {
         this.notes = notes;
     }
 
-    public String getDateOfBirth() {
+    public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
 
     public void setDateOfBirth(String dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
+        this.dateOfBirth = LocalDate.parse(dateOfBirth);
     }
 
     public List<Flight> getFlights() {
